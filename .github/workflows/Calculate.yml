@@ -1,0 +1,21 @@
+name: Calculate
+on: [push]
+jobs:
+  calculate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: pip install pyyaml
+      - name: Calculate
+        run: |
+          import yaml
+          x = int(input("請輸入 x 的值："))
+          y = int(input("請輸入 y 的值："))
+          result = 10 * (300 - x) / (300 - y)
+          print(f"計算結果為：{result}")
